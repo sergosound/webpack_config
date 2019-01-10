@@ -1,0 +1,11 @@
+@import "cont";
+
+$bg: pink;
+
+body {
+  background-color: $bg;
+  color: #111111;
+  display: flex;
+  justify-content: center;
+  transform: translateX(5px);
+}
