@@ -11,11 +11,8 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.js$/,
-        exclude: /node_modules/,
-        use: {
-          loader: "babel-loader"
-        }
+        test: /\.pug$/,
+        use: ['html-loader', 'pug-html-loader']
       },
       {
         test: /\.scss$/,
@@ -24,7 +21,14 @@ module.exports = {
             fallback: 'style-loader',
             use: ['css-loader', 'sass-loader']
           })
-      }
+      },
+      {
+        test: /\.js$/,
+        exclude: /node_modules/,
+        use: {
+          loader: "babel-loader"
+        }
+      },
     ]
   },
   plugins: [ 
@@ -34,7 +38,7 @@ module.exports = {
     new HtmlWebpackPlugin({
       inject: false,
       hash: true,
-      // template: './app/index.html',
+      template: './app/pug/index.pug',
       filename: 'index.html'
     })
   ]
